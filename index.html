@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Style sheet -->
+<link rel="stylesheet" href="chatbox.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Scripts -->
+<script src="https://kit.fontawesome.com/e7dc4ed353.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.js"/></script>
+</head>
+<body>
+<div class="chat-container" id = "chat-container"></div>
+<h1>Hello World</h1>
+<button class="chat-button" id="chat-button"><i class="fas fa-comment-alt fa-lg"></i></button>
+  
+<script type="text/javascript">
+    var chatroom = new window.Chatroom({
+      host: "https://aum.ngrok.io",
+      title: "Chat with Your Bot",
+      container: document.querySelector(".chat-container"),
+      welcomeMessage: "Hi, how may I help you?",
+      speechRecognition: "en-US",
+      voiceLang: "en-US"
+    });
+  
+</script>  
+<script>
+     $('.chat-button').click(function() {
+       chatroom.ref.handleToggleChat();
+       $(this).find('i').toggleClass('fas fa-times fas fa-comment-alt');
+});
+</script>
+</body>
+</html>
